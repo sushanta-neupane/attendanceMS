@@ -6,7 +6,7 @@ import Notices from '@/components/admin/Notices';
 import Attendance from '@/components/admin/Attendance';
 
 function Page() {
-  const [selectedComponent, setSelectedComponent] = useState(null);
+  const [selectedComponent, setSelectedComponent] = useState("attendance");
 
   const handleComponentChange = (event) => {
     setSelectedComponent(event.target.value);
@@ -27,12 +27,13 @@ function Page() {
     }
   };
 
+
   return (
     <div className="main-container">
       <select onChange={handleComponentChange}>
         <option value="">Select Component</option>
         <option value="notices">Notices</option>
-        <option value="attendance">Attendance</option>
+        <option selected value="attendance">Attendance</option>
         <option value="user">User</option>
         <option value="admin">Admin</option>
       </select>
