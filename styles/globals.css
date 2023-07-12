@@ -140,6 +140,10 @@
     padding: 10px;
     border-radius: 5px;
 }
+.notice-items:hover
+{
+  border: 1px solid #cccccc3d;
+}
 
 .notice-head
 {
@@ -336,7 +340,145 @@ background: #1d1d1d;
   }
   
 
+  /* //attendace */
+
+
+  .att-display
+  {
+    display: flex;
+    flex-direction: column;
+    background: #1d1d1d;
+    align-items: center;
+  }
+
+  .att-head
+  {
+    display: flex;
+    background: #1d1d1d;
+ 
+    width: 100%;
+    
+    
+  }
+  .att-item
+  {
+    
+    padding: 10px;
+    border-bottom:1px solid #111111 ;
+    margin: auto;
+    width: 100%;
+    
+  }
+
+
+  .individualData
+  {
+    display: flex;
+    width: 100%;
+ 
+    align-items: center;
+  }
+  .individualData input[type=checkbox]
+  {
+  flex: 1;
+  width: 20px;
+  height: 20px;
+  
+  }
+  .individualData div
+  {
+  flex: 1;
+  }
+
+
+  /* admin notives */
+
+  .userform
+  {
+    display: flex;
+    flex-direction: column;
+    background: #1d1d1d;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .formhandle 
+  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    
+  }
+  .formhandle  input
+  {
+    padding: 10px;
+    margin: 10px;
+    flex: 1;
+
+  }
+  .formhandle  textarea
+  {
+
+width: 100%;
+    height: 40px;
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .ibody
+  {
+    height: 20vh !important;
+  }
+  
+  
+
 /* globals  */
+
+/* loader */
+.loader-page {
+    background-color: #111111;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loader {
+    border: 4px solid #ccc;
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+/* ....................   */
+
+input[type=date]
+{
+    background: #1D1D1D;
+    padding: 10px;
+    color: #ccc;
+    border: none;
+    margin: 10px;
+    border: 1px solid #cccccc3d;
+    color-scheme: dark;
+}
+input[type=date]:hover
+{
+    background: #111111;
+
+}
 
 .head
 {

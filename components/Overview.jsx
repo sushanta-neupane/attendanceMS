@@ -53,15 +53,9 @@ function Overview() {
             </div>
 
             <div className="portfolio">
-                <div className="head">My details</div>
-                  <div className="subhead">Name: User Name</div>
-                  <div className="subhead">Name: User Name</div>
-                  <div className="subhead">Name: User Name</div>
-                  <div className="subhead">Name: User Name</div>
-                  <div className="subhead">Name: User Name</div>
-                  <div className="subhead">Name: User Name</div>
-                  <div className="subhead">Name: User Name</div>
-                  <div className="subhead">Name: User Name</div>
+                <div className="head">Comming soon feature</div>
+                  <div className="subhead">Sthg Interesting</div>
+                
             </div>
         </div>  
     </div>

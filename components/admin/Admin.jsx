@@ -59,7 +59,7 @@ function Admin() {
   return (
        <div className="userform">
         <div className="head">Login</div>
-        <form onSubmit={handleSubmit}>
+        <form className='formhandle' onSubmit={handleSubmit}>
 
             <input className="input" onChange={handleChange} type="text" name="id" value={formData.id} placeholder="Id" />
             <input className="input" onChange={handleChange} type="text" name="password" value={formData.password} placeholder="Password" />

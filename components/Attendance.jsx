@@ -2,6 +2,9 @@
 import React, { useState, useEffect } from 'react';
 
 function Attendance() {
+
+
+  
   const [selectedDate, setSelectedDate] = useState('');
   const [attendanceData, setAttendanceData] = useState(null);
   const [userData, setUserData] = useState(null);
@@ -50,35 +53,48 @@ function Attendance() {
     return '';
   };
 
+
   return (
     <div className="attendance main-container">
-      <input type="date" value={selectedDate} onChange={handleDateChange} />
+      Select Date: <input type="date" value={selectedDate} onChange={handleDateChange} />
 
       {attendanceData ? (
-        <table className="attendance-table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Sub1</th>
-              <th>Sub2</th>
-              <th>Sub3</th>
-              <th>Sub4</th>
-              <th>Sub5</th>
-            </tr>
-          </thead>
-          <tbody>
-            {attendanceData.data.map((item, index) => (
-              <tr key={index}>
-                <td>{getNameById(item.id)}</td>
-                <td>{item.sub1 ? 'P' : 'A'}</td>
-                <td>{item.sub2 ? 'P' : 'A'}</td>
-                <td>{item.sub3 ? 'P' : 'A'}</td>
-                <td>{item.sub4 ? 'P' : 'A'}</td>
-                <td>{item.sub5 ? 'P' : 'A'}</td>
-              </tr>
+     
+   <>
+
+   <div className="att-display">
+
+    <div className="att-head">
+      <div className="att-item">Name</div>
+      <div className="att-item">SUB1</div>
+      <div className="att-item">SUB2</div>
+      <div className="att-item">SUB3</div>
+      <div className="att-item">SUB4</div>
+      <div className="att-item">SUB5</div>
+   
+    </div>
+
+              {attendanceData.data.map((item, index) => (
+    <div className="att-head">
+             
+                <div className="att-item">{getNameById(item.id)}</div>
+                <div className="att-item">{item.sub1 ? 'P' : 'A'}</div>
+                <div className="att-item">{item.sub2 ? 'P' : 'A'}</div>
+                <div className="att-item">{item.sub3 ? 'P' : 'A'}</div>
+                <div className="att-item">{item.sub4 ? 'P' : 'A'}</div>
+                <div className="att-item">{item.sub5 ? 'P' : 'A'}</div> 
+   
+    </div>
             ))}
-          </tbody>
-        </table>
+
+
+
+
+    
+   </div>
+
+            </>
+     
       ) : (
         <div>No attendance data available</div>
       )}

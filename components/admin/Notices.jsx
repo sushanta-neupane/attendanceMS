@@ -65,16 +65,20 @@ function Admin() {
   return (
        <div className="userform">
         <div className="head">Notices </div>
-        <form onSubmit={handleSubmit}>
+        <div >
 
-            <textarea className="input" onChange={handleChange}  name="head" value={formData.head} placeholder="Head" />
-            <textarea className="input" onChange={handleChange}  name="body" value={formData.body} placeholder="Body" />
+      
+        <form className="formhandle" onSubmit={handleSubmit}>
+
+            <textarea className="input ihead" onChange={handleChange}  name="head" value={formData.head} placeholder="Head" />
+            <textarea className="input ibody" onChange={handleChange}  name="body" value={formData.body} placeholder="Body" />
             <input className="input" onChange={handleChange} type="text" name="link" value={formData.link} placeholder="Link" />
             <input className="input" onChange={handleChange} type="text" name="sector" value={formData.sector} placeholder="Sector" />
             <input className="input" onChange={handleChange} type="date" name="date" value={formData.date} placeholder="Date" />
             
             <button className="btn" onChange={handleChange} type="submit">Submit</button>
         </form>
+        </div>
        </div>
 
 

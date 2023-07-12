@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Link from "next/link"
 
 const Landing = () => {
   return (
@@ -12,8 +12,13 @@ const Landing = () => {
           Simplify your task  <span className="m-w">&</span>  Elevate your semester for academic success
           </div>
           <div>
-            <button className="btn">Overview</button>
+          <Link href="./overview">
+          
+          <button className="btn">Overview</button>
+          </Link>  
+          <Link href="./chat">
             <button className="btn fade">Connect</button>
+          </Link>
           </div>
 
    

@@ -7,6 +7,8 @@ const Nav = () => {
     <>
     <div className='navbar' >
     <div>
+      <Link href='./'>
+      
         <div className="account ">
           <div className="pp">
             <Image
@@ -15,7 +17,7 @@ const Nav = () => {
           </div>
           <div className="pdetail">SeM CSIT <br /> PN campus</div>
         </div>
-
+        </Link>
      
         <div className="items">
            <Link href="./overview" style={{ textDecoration: 'none' }} ><div className="items-link"> <bs.BsBoundingBox className="icon" size={20}/> Overview</div></Link> 
@@ -39,8 +41,10 @@ const Nav = () => {
         </div>
     </div>
         <div className="userSettings">
-          <div className="items-link setting"><bs.BsFillGearFill className="icon" size={20}/> Setting</div>
-          <div className="items-link logout"><bs.BsFillBackspaceFill className="icon" size={20}/> Logout</div>
+         <Link href="./chat">
+         <div className="items-link setting"><bs.BsFillCloudFill className="icon" size={20}/> Chat</div>
+         </Link> 
+          
           
         </div>
 

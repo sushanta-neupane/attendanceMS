@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 function Attendance() {
   const [users, setUsers] = useState([]);
   const [selectedDate, setSelectedDate] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -50,6 +51,7 @@ function Attendance() {
     });
 
     try {
+      setLoading(true);
       const response = await fetch('/api/attendance', {
         method: 'POST',
         headers: {
@@ -60,13 +62,15 @@ function Attendance() {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
-        console.log('Successfully data is updated:::');
+        console.log('Response:', data);
+        console.log('Data is successfully updated.');
       } else {
-        console.log('Error in updating');
+        console.log('Error in updating data.');
       }
     } catch (error) {
-      console.log('Form handle error:', error);
+      console.log('Error:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -78,7 +82,7 @@ function Attendance() {
         onChange={(e) => setSelectedDate(e.target.value)}
       />
       {users.map((items, index) => (
-        <div className="individualData" value={items.id} key={index}>
+        <div  className="individualData" value={items.id} key={index}>
           <div>{items.name}</div>
 
           <input type="checkbox" name="sub1" id="sub1" />
@@ -89,11 +93,10 @@ function Attendance() {
           <button className="btn" type="button" onClick={handleToggleAllSub}>
             Toggle All Sub
           </button>
-
         </div>
       ))}
-      <button className="btn" type="submit">
-        Update
+      <button className="btn" type="submit" disabled={loading}>
+        {loading ? 'Updating...' : 'Update'}
       </button>
     </form>
   );
