@@ -163,20 +163,28 @@
 
 /* materials */
 
-.selector
+.folder
 {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     margin: 10px;
+    flex-wrap: wrap;
 }
 
-.select-btn
+.subfolder
 {
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+    border: #ccc 1px solid;
 }
+.subfolder:hover
+{
+  background: #1d1d1d;
+}
+
+
 
 
 /* attendance  */
@@ -549,3 +557,24 @@ a
     text-decoration: none;
     color: #ccc;
 }
+
+@media only screen and (max-width: 600px) {
+  .navbar
+  {
+    width: 10%;
+  }
+
+  .items-link
+  {
+    width: 20px;
+  }
+  .items-link span
+  {
+    display: none;
+  }
+ 
+  .pdetail
+  {
+    display: none;
+  }
+  }

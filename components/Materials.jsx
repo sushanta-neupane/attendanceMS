@@ -1,40 +1,42 @@
 "use client"
-import React ,{useState,useEffect} from 'react'
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+import Link from "next/link";
+import React, {useState, useEffect} from "react";
+
 function Materials() {
-  const [materialsData, setMaterialsData] = useState([]);
+  const path = window.location.pathname; 
+  const folderid = '1QceEYxfhjBrlFRoIYjG2s0ogdDX9G3Ka';
+
+  const [filesList, setFiles] = useState([]);
+
+  const fetchData = async () => {
+    const {drive} = await (await fetch(`/api/folderfetch/?id=${folderid}`)).json(); 
+    const {files} = drive;
+    setFiles(files);
+  }
+
+  const handleClick = (e) =>{
+console.log(e.target.id)
+  }
+
   useEffect(() => {
-    const fetchMaterials = async () => {
-      try {
-        const response = await fetch(`${apiUrl}/materials`, {
-          method: 'GET'
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          setMaterialsData(data.data);
-        } else {
-          console.log('Error in fetching materials');
-        }
-      } catch (error) {
-        console.log('Error:', error);
-      }
-    };
-
-    fetchMaterials();
+    fetchData();
   }, []);
-
 
   return (
     <div className="main-container materials">
-
-
-        <div className="body">
-        <iframe src="https://drive.google.com/embeddedfolderview?id=1QceEYxfhjBrlFRoIYjG2s0ogdDX9G3Ka#grid" className='material-embedded' ></iframe>
- 
+      {filesList.map(item => (
+        <Link href={`${path}/${item.name.replace(/\s/g, '').toLowerCase()}`}>
+        <div key={item.id} className="folder">
+         
+          <div id={item.id} onClick={ handleClick } className="subfolder">
+            {item.name}     
+          </div>
+     
         </div>
+        </Link>
+      ))}
     </div>
-  )
+  );
 }
 
-export default Materials
+export default Materials;

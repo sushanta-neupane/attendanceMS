@@ -62,10 +62,10 @@ function Admin() {
   return (
        <div className="userform">
         <div className="head">Materials </div>
-        <form onSubmit={handleSubmit}>
+        <form className='formhandle' onSubmit={handleSubmit}>
 
             <input className="input" onChange={handleChange} type="text" name="link" value={formData.link} placeholder="Link" />
-            <select value={formData.sem} onChange={handleChange} name="sem" className="choose">
+            <select  value={formData.sem} onChange={handleChange} name="sem" className="choose">
                 <option value="1">Sem 1</option>
                 <option value="2">Sem 2</option>
                 <option value="3">Sem 3</option>

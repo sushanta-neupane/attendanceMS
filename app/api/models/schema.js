@@ -142,9 +142,29 @@ const eventsSchema = new mongoose.Schema(
           },
 
 
-    }
-);
+    })
+    const subjectSchema = new mongoose.Schema({
+        sem: {
+          type: Number,
+        },
+        subjects: [
+          {
+            creditHour: {
+              type: Number,
+            },
+            code: {
+              type: String,
+            },
+            title: {
+              type: String,
+            },
+          },
+        ],
+      });
+      
+   
 
+      
 //modals
 
 
@@ -153,6 +173,7 @@ const studentData = mongoose.models.Students || mongoose.model('Students',studen
 const attendanceData = mongoose.models.Attendance || mongoose.model('Attendance',attendanceSchema)
 const materialData = mongoose.models.Materials || mongoose.model('Materials',materialSchema)
 const eventsData = mongoose.models.Events || mongoose.model('Events',eventsSchema)
+const subjectData = mongoose.models.Subjects || mongoose.model('Subjects',subjectSchema)
 
 
 module.exports = 
@@ -161,5 +182,6 @@ module.exports =
     studentData,
     attendanceData,
     materialData,
-    eventsData
+    eventsData,
+    subjectData
 };

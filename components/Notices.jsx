@@ -11,7 +11,7 @@ function Notices() {
   useEffect(() => {
     const fetchNotices = async () => {
       try {
-        const response = await fetch(`${apiUrl}/notices`, {
+        const response = await fetch(`api/notices`, {
           method: 'GET'
         });
 

@@ -11,7 +11,7 @@ function Overview() {
   useEffect(() => {
     const fetchNotices = async () => {
       try {
-        const response = await fetch(`${apiUrl}/notices?limit=2`, {
+        const response = await fetch(`api/notices?limit=2`, {
           method: 'GET'
         });
 

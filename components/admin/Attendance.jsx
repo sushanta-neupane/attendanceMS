@@ -78,6 +78,7 @@ function Attendance() {
     <form id="attendanceData" onSubmit={handleSubmit}>
       <input
         type="date"
+        required
         value={selectedDate}
         onChange={(e) => setSelectedDate(e.target.value)}
       />
