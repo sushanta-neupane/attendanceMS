@@ -1,10 +1,9 @@
 
 import { NextResponse } from 'next/server';
-
-const connectDB = require('../../../models/dbconnect');
+import { connectDB } from '@/models/dbconnect';
+import { attendanceData } from '@/models/schema';
 const qs = require('qs');
 
-const {attendanceData} = require('../../../models/schema');
 const mongoose = require('mongoose');
 var data = {};
 
@@ -12,6 +11,7 @@ export async function GET(request) {
   try {
     await connectDB();
     const queryURL = qs.parse(request.url.split('?')[1]);
+    console.log(queryURL);
     const id = queryURL.id;
     const date = queryURL.date;
 
