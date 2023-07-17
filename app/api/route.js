@@ -1,7 +1,7 @@
 
 import { NextResponse } from 'next/server';
 import { useSearchParams } from 'next/navigation'
-const connectDB = require('./models/dbconnect');
+const connectDB = require('../../models/dbconnect');
 const qs = require('qs');
 const mongoose = require('mongoose');
 const {loginData,studentData,attendanceData,materialData,eventsData} = require('./models/schema');
