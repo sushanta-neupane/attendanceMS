@@ -5,7 +5,7 @@ const connectDB = require('../models/dbconnect');
 const qs = require('qs');
 
 const {attendanceData} = require('../models/schema');
-
+const mongoose = require('mongoose');
 var data = {};
 
 export async function GET(request) {
@@ -63,6 +63,7 @@ export async function GET(request) {
           await formData.save();
         }
       }
+      mongoose.connection.close()
   
       return NextResponse.json({ success: true });
     } catch (error) {
