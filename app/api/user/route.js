@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 
 const connectDB = require('../models/dbconnect');
 const qs = require('qs');
-
+const mongoose = require('mongoose');
 const {studentData} = require('../models/schema');
 
 var data = {};
@@ -25,7 +25,7 @@ export async function GET(request) {
       // Fetch all data if no id is provided
       data = await studentData.find().sort({ _id: 1 }).limit(limit);
     }
-
+    mongoose.connection.close()
     return NextResponse.json({ data });
   } catch (error) {
     console.error('Error connecting to the database:', error);
@@ -43,7 +43,7 @@ export async function GET(request) {
         const formData = new studentData(res);
         await formData.save();  
       
-        
+        mongoose.connection.close()
         return NextResponse.json( {res} );
   
   

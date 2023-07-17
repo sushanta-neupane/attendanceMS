@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 
 const connectDB = require('../models/dbconnect');
 const qs = require('qs');
-
+const mongoose = require('mongoose');
 const {eventsData} = require('../models/schema');
 
 var data = {};
@@ -16,8 +16,8 @@ export async function GET(request) {
    
         data = await eventsData.find().sort({_id:-1}).limit(limit);
           
+        mongoose.connection.close()
         return NextResponse.json({ data });
-
 
   }
   catch(error)
@@ -37,8 +37,8 @@ export async function GET(request) {
         await formData.save();  
       
         
+        mongoose.connection.close()
         return NextResponse.json( {res} );
-  
   
     }
     catch(error)

@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 
 const connectDB = require('../models/dbconnect');
 const qs = require('qs');
-
+const mongoose = require('mongoose');
 const { subjectData } = require('../models/schema');
 const semesterData = [
   {
@@ -97,7 +97,7 @@ export async function GET(request) {
     const savedData = await subjectData.find();
     
 
-
+    mongoose.connection.close()
     return NextResponse.json({ data: savedData });
   } catch (error) {
     console.error('Error connecting to the database:', error);

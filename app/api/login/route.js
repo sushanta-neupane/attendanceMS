@@ -1,4 +1,5 @@
 
+const mongoose = require('mongoose');
 import { NextResponse } from 'next/server';
 
 const connectDB = require('../models/dbconnect');
@@ -16,8 +17,8 @@ export async function GET(request) {
    
         data = await loginData.find();
           
+        mongoose.connection.close()
         return NextResponse.json({ data });
-
 
   }
   catch(error)
