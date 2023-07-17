@@ -1,14 +1,15 @@
 
 import { NextResponse } from 'next/server';
-import { useSearchParams } from 'next/navigation'
-const connectDB = require('../../models/dbconnect');
+
+import { connectDB } from '@/models/dbconnect';
+
 const qs = require('qs');
 const mongoose = require('mongoose');
-const {loginData,studentData,attendanceData,materialData,eventsData} = require('../../models/schema');
+import {loginData,studentData,attendanceData,materialData,eventsData} from '@/models/schema';
 
 var data = {};
 
-export async function GET(request) {
+export  async function GET(request) {
   try{
       await connectDB();
       const queryURL = qs.parse(request.url.split('?')[1]).type;
@@ -52,3 +53,6 @@ export async function GET(request) {
 
   }
   }
+
+
+  export const dynamic = 'force-dynamic' ;

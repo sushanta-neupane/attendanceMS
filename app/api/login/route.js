@@ -2,10 +2,10 @@
 const mongoose = require('mongoose');
 import { NextResponse } from 'next/server';
 
-const connectDB = require('../../../models/dbconnect');
+import { connectDB } from '@/models/dbconnect';
+import { loginData } from '@/models/schema';
 const qs = require('qs');
 
-const {loginData} = require('../../../models/schema');
 
 var data = {};
 
@@ -51,3 +51,4 @@ export async function GET(request) {
     }
     }
   
+    export const dynamic = 'force-dynamic' ;

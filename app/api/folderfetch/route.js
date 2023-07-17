@@ -2,12 +2,12 @@
 import { NextResponse } from 'next/server';
 const qs = require('qs');
 
-export async function GET(request,response) {
+export  async function GET(request,response) {
     
 
     try{
         
-    const driveapi = process.env.DRIVE_API_KEY || "AIzaSyC06yS6-gNn_IUG6W8pf1y0xQh3hUeF-Xo";
+    const driveapi = process.env.DRIVE_API_KEY ;
  
     const queryURL = qs.parse(request.url.split('?')[1]);
     const folderid = queryURL.id;
@@ -31,3 +31,5 @@ export async function GET(request,response) {
 
   }
 }
+
+export const dynamic = 'force-dynamic' ;

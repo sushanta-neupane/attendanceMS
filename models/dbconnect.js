@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
-const uri = "mongodb+srv://dross:902dross@cluster0.ei9mvp4.mongodb.net/smstack?retryWrites=true&w=majority";
+const uri = process.env.DB_URL;
 
 
 
 
-
-async function connectDB() {
+export async function connectDB() {
 
 
   try {
@@ -16,13 +15,7 @@ async function connectDB() {
 
 
     console.log('Connected to MongoDB');
-    const db = mongoose.connection
 
-  await db.collection('test').insertOne({name: 'test'})
-
-  res.json({message: 'success!'})
-
-  await db.close()
 
 
   } catch (error) {
@@ -31,4 +24,4 @@ async function connectDB() {
   }
 }
 
-module.exports = connectDB;
+

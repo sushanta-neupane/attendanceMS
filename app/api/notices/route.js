@@ -1,14 +1,15 @@
 
 import { NextResponse } from 'next/server';
+import { connectDB } from '@/models/dbconnect';
 
-const connectDB = require('../../../models/dbconnect');
 const qs = require('qs');
 const mongoose = require('mongoose');
-const {eventsData} = require('../../../models/schema');
+
+import { eventsData } from '@/models/schema';
 
 var data = {};
 
-export async function GET(request) {
+export  async function GET(request) {
   try{
       await connectDB();
       const limit = qs.parse(request.url.split('?')[1]).limit;
@@ -28,7 +29,7 @@ export async function GET(request) {
   }
   }
 
-  export async function POST(request) {
+  export  async function POST(request) {
     try{
         await connectDB();
 
@@ -50,3 +51,6 @@ export async function GET(request) {
     }
     }
   
+
+
+    export const dynamic = 'force-dynamic' ;

@@ -7,7 +7,7 @@ const qs = require('qs');
 const mongoose = require('mongoose');
 var data = {};
 
-export async function GET(request) {
+export  async function GET(request) {
   try {
     await connectDB();
     const queryURL = qs.parse(request.url.split('?')[1]);
@@ -72,3 +72,5 @@ export async function GET(request) {
     }
   }
   
+
+  export const dynamic = 'force-dynamic' ;

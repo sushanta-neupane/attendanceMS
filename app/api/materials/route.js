@@ -1,14 +1,16 @@
 
 import { NextResponse } from 'next/server';
 
-const connectDB = require('../../../models/dbconnect');
+import { connectDB } from '@/models/dbconnect';
+
 const qs = require('qs');
 const mongoose = require('mongoose');
-const {materialData} = require('../../../models/schema');
+
+import { materialData } from '@/models/schema';
 
 var data = {};
 
-export async function GET(request) {
+export default async function GET(request) {
   try{
       await connectDB();
       const queryURL = qs.parse(request.url.split('?')[1]).type;
@@ -28,7 +30,7 @@ export async function GET(request) {
   }
   }
 
-  export async function POST(request) {
+  export  async function POST(request) {
     try{
         await connectDB();
 
@@ -50,3 +52,4 @@ export async function GET(request) {
     }
     }
   
+    export const dynamic = 'force-dynamic' ;
