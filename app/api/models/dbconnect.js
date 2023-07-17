@@ -15,15 +15,14 @@ async function connectDB() {
     });
 
 
+    console.log('Connected to MongoDB');
     const db = mongoose.connection
 
-    await db.collection('test').insertOne({name: 'test'})
-  
-    res.json({message: 'success!'})
-  
-    await db.close()
-    
-    console.log('Connected to MongoDB');
+  await db.collection('test').insertOne({name: 'test'})
+
+  res.json({message: 'success!'})
+
+  await db.close()
 
 
   } catch (error) {
