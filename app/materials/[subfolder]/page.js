@@ -11,7 +11,7 @@ function page({params}) {
   
     const fetchData = async () => {
       const {drive} = await (await fetch(`/api/folderfetch/?id=${folderid}`)).json(); 
-      const {files} = drive;
+      const {files} = drive; 
       setFiles(files);
     }
   
