@@ -43,7 +43,7 @@ export async function GET(request) {
         const formData = new studentData(res);
         await formData.save();  
       
-        mongoose.connection.close()
+        await mongoose.connection.close()
         return NextResponse.json( {res} );
   
   

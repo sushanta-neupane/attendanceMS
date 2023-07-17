@@ -17,7 +17,7 @@ export async function GET(request) {
    
         data = await loginData.find();
           
-        mongoose.connection.close()
+        await mongoose.connection.close()
         return NextResponse.json({ data });
 
   }
@@ -37,7 +37,7 @@ export async function GET(request) {
         const formData = new loginData(res);
         await formData.save();  
       
-        
+        await mongoose.connection.close()
         return NextResponse.json( {res} );
   
   

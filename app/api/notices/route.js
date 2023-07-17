@@ -37,7 +37,7 @@ export async function GET(request) {
         await formData.save();  
       
         
-        mongoose.connection.close()
+       await mongoose.connection.close()
         return NextResponse.json( {res} );
   
     }

@@ -30,7 +30,7 @@ export async function GET(request) {
       // Fetch all data if no date or id is provided
       data = await attendanceData.find();
     }
-
+    await mongoose.connection.close()
     return NextResponse.json({ data });
   } catch (error) {
     console.error('Error connecting to the database:', error);
@@ -63,7 +63,7 @@ export async function GET(request) {
           await formData.save();
         }
       }
-      mongoose.connection.close()
+     await mongoose.connection.close()
   
       return NextResponse.json({ success: true });
     } catch (error) {

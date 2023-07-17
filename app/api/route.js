@@ -40,7 +40,7 @@ export async function GET(request) {
 
           break;
       }
-      mongoose.connection.close()
+       await mongoose.connection.close()
         return NextResponse.json({ data });
 
 

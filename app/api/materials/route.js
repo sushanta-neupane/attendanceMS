@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 
 const connectDB = require('../models/dbconnect');
 const qs = require('qs');
-
+const mongoose = require('mongoose');
 const {materialData} = require('../models/schema');
 
 var data = {};
@@ -15,7 +15,7 @@ export async function GET(request) {
       
    
         data = await materialData.find();
-          
+        await mongoose.connection.close()
         return NextResponse.json({ data });
 
 
