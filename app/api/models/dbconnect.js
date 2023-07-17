@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const uri = process.env.DB_URL || "mongodb+srv://dross:902dross@cluster0.ei9mvp4.mongodb.net/smstack?retryWrites=true&w=majority";
+const uri = "mongodb+srv://dross:902dross@cluster0.ei9mvp4.mongodb.net/smstack?retryWrites=true&w=majority";
 
 
 

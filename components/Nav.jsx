@@ -24,7 +24,7 @@ const Nav = () => {
 
            <Link href="/attendance" style={{ textDecoration: 'none' }}>
 
-            <div className="items-link"> <bs.BsFillFileSpreadsheetFill className="icon" size={20}/> <span>Overview</span></div>
+            <div className="items-link"> <bs.BsFillFileSpreadsheetFill className="icon" size={20}/> <span>Attendance</span></div>
            </Link>
            <Link href="/materials" style={{ textDecoration: 'none' }}>
 
