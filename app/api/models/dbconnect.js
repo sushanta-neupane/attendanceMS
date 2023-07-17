@@ -6,11 +6,23 @@ const uri = "mongodb+srv://dross:902dross@cluster0.ei9mvp4.mongodb.net/smstack?r
 
 
 async function connectDB() {
+
+
   try {
     await mongoose.connect(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
+
+
+    const db = mongoose.connection
+
+    await db.collection('test').insertOne({name: 'test'})
+  
+    res.json({message: 'success!'})
+  
+    await db.close()
+    
     console.log('Connected to MongoDB');
 
 
