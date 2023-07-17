@@ -7,7 +7,7 @@ export async function GET(request,response) {
 
     try{
         
-    const driveapi = process.env.DRIVE_API_KEY;
+    const driveapi = process.env.DRIVE_API_KEY || "AIzaSyC06yS6-gNn_IUG6W8pf1y0xQh3hUeF-Xo";
  
     const queryURL = qs.parse(request.url.split('?')[1]);
     const sem = queryURL.sem;
