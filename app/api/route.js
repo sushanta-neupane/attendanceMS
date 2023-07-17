@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation'
 const connectDB = require('../../models/dbconnect');
 const qs = require('qs');
 const mongoose = require('mongoose');
-const {loginData,studentData,attendanceData,materialData,eventsData} = require('./models/schema');
+const {loginData,studentData,attendanceData,materialData,eventsData} = require('../../../models/schema');
 
 var data = {};
 

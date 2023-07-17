@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 const connectDB = require('../../../models/dbconnect');
 const qs = require('qs');
 const mongoose = require('mongoose');
-const {eventsData} = require('../models/schema');
+const {eventsData} = require('../../../models/schema');
 
 var data = {};
 
