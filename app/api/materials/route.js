@@ -10,7 +10,7 @@ import { materialData } from '@/models/schema';
 
 var data = {};
 
-export default async function GET(request) {
+export  async function GET(request) {
   try{
       await connectDB();
       const queryURL = qs.parse(request.url.split('?')[1]).type;

@@ -41,12 +41,12 @@
 .truehide
 {
   left: -10px;
-  transition: all 1s;
+  transition: all .5s  ease-in-out;
 }
 .falsehide
 {
   left: -500px;
-  transition: all 1s;
+  transition: all .5s ease-in-out;
 }
 
 
@@ -602,13 +602,21 @@ a
 .truebtn
 {
   transform: translateX(180px);
-  transition: all 1s;
+  transition: all .5s ease-in-out;
 
 }
 .falsebtn
 {
-  transition: all 1s;
+  transition: all .5s ease-in-out;
 
+}
+
+.showfile
+{
+  width: 100%;
+  background-color: #111111;
+  
+  position: absolute;
 }
 
 @media only screen and (max-width: 600px) {
