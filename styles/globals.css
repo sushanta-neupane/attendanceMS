@@ -25,6 +25,7 @@
 
 .navbar
 {
+  position: absolute;
     background: #111111;
     color: #ccc;
     display: flex;
@@ -36,6 +37,18 @@
     margin: 5px;
     border-radius:5px;
 }
+
+.truehide
+{
+  left: -10px;
+  transition: all 1s;
+}
+.falsehide
+{
+  left: -500px;
+  transition: all 1s;
+}
+
 
 
 .account    
@@ -104,9 +117,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 
+.landing div
+{
+  width: auto;
+  padding-left: 10px;
+}
 .main-text
 {
     font-size: 3rem;
@@ -558,23 +577,47 @@ a
     color: #ccc;
 }
 
-@media only screen and (max-width: 600px) {
-  .navbar
-  {
-    width: 10%;
-  }
+.floatingbtn
+{
+  padding: 10px;
+  bottom: 0;
+  background-color: #D8A01D;
+  border: transparent 10px;
+  position: absolute;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  margin: 30px;
+}
 
-  .items-link
-  {
-    width: 20px;
+.floatingbtn:hover{
+  background-color: #dfa41a;
+  box-shadow: #D8A01D 0px 0px 10px;
+}
+
+.truebtn
+{
+  transform: translateX(180px);
+  transition: all 1s;
+
+}
+.falsebtn
+{
+  transition: all 1s;
+
+}
+
+@media only screen and (max-width: 600px) {
+
+  .navbar{
+    width: 45%;
   }
-  .items-link span
+  .portfolio
   {
     display: none;
   }
- 
-  .pdetail
-  {
-    display: none;
-  }
-  }
+}

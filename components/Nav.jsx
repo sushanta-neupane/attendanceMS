@@ -1,23 +1,35 @@
-import React from 'react'
-import Image from 'next/image';
-import * as bs from "react-icons/bs";
+"use client"
+import React,{useState} from 'react'
+import * as bs from "react-icons/bs"
 import Link from 'next/link'
+
+
+
 const Nav = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+
+  if (isOpen)
+  {
+    document.body.addEventListener('click' , ()=>{
+      setIsOpen(false);
+    })
+  }
   return (
     <>
-    <div className='navbar' >
+
+
+    <div className={`navbar ${isOpen}hide`} >
     <div>
-      <Link href='/'>
       
         <div className="account ">
-          <div className="pp">
-            <Image
-            
-            />
-          </div>
+      <Link href='/'>
+          <div className="pp"></div>
           <div className="pdetail">SeM CSIT <br /> PN campus</div>
-        </div>
         </Link>
+        
+   
+        </div>
      
         <div className="items">
            <Link href="/overview" style={{ textDecoration: 'none' }} ><div className="items-link"> <bs.BsBoundingBox className="icon" size={20}/> <span>Overview</span></div></Link> 
@@ -26,6 +38,7 @@ const Nav = () => {
 
             <div className="items-link"> <bs.BsFillFileSpreadsheetFill className="icon" size={20}/> <span>Attendance</span></div>
            </Link>
+           
            <Link href="/materials" style={{ textDecoration: 'none' }}>
 
             <div className="items-link"> <bs.BsFiles className="icon" size={20}/> <span>Materials</span></div>
@@ -51,6 +64,10 @@ const Nav = () => {
         
         
     </div>
+
+    <button className={`floatingbtn ${isOpen}btn`} onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? '<' : '>'}
+      </button>
     </>
   )
 }
