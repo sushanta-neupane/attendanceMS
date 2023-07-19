@@ -66,7 +66,8 @@ const Nav = () => {
     </div>
 
     <button className={`floatingbtn ${isOpen}btn`} onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? '<' : '>'}
+      
+        {isOpen ? <bs.BsBackspace className='icon' size={20}/>: <bs.BsList className='icon' size={20}/>}
       </button>
     </>
   )

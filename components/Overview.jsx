@@ -1,20 +1,25 @@
 "use client"
 import Link from 'next/link';
 import React ,{useState,useEffect} from 'react'
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
 
 function Overview() {
 
   const [noticeData, setNoticeData] = useState([]);
+  const [attendanceData, setAttendanceData] = useState([]);
 
 
-  useEffect(() => {
+ 
     const fetchNotices = async () => {
       try {
         const response = await fetch(`api/notices?limit=2`, {
           method: 'GET'
         });
-
+        const response1 =  await fetch(`api/attendance`, {
+          method: 'GET'
+        });
+        const data1 = await response1.json();
+        setAttendanceData(data1.data);
         if (response.ok) {
           const data = await response.json();
           setNoticeData(data.data);
@@ -26,13 +31,19 @@ function Overview() {
       }
     };
 
+    
+  
+
+    useEffect(() => {
     fetchNotices();
+
+ 
   }, []);
 
   return (
     <div className="main-container overview">
         <div className="graph">
-            Graph (commming soon)
+         Class run : {attendanceData.length/35}
         </div>
 
         <div className="sub-overview">
@@ -40,8 +51,8 @@ function Overview() {
             <div className="new-notice">
         <div className="head">New Notices</div>
             {noticeData.map((item,index)=>(
-              <Link href={item.link}>
-          <div key={index} className="notice-items new">
+              <Link key={index} href={item.link}>
+          <div  className="notice-items new">
           <div className="fadetext new">{item.date.split('T')[0]} </div>
               <div className="notice-head new">  {item.head}</div>
               <div className="notice-sub new"> {item.body}</div>
