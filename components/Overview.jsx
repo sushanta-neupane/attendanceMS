@@ -91,7 +91,7 @@ const data = dates.map(date => {
   return (
     <div className="main-container overview">
         <div className="graph">
-         Class run : {attendanceData.length/35}
+       
          <ResponsiveContainer>
 
          <LineChart  width={400} height={400} data={data}>
